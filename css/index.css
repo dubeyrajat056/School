@@ -1,0 +1,66 @@
+.hero-section {
+    background-color: #00bcd4;
+    color: white;
+    position: relative;
+    padding: 80px 40px;
+    /* Space around the hero section content */
+    overflow: hidden;
+}
+
+.hero-section .content {
+    max-width: 600px;
+}
+
+.hero-section h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+
+.hero-section p {
+    margin-top: 15px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.hero-section .btn {
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Custom Styling for Image */
+.hero-section img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    right: 60px;
+    /* Add space on the right */
+    /* bottom: 60px; */
+    bottom: 25px;
+    /* Add space at the bottom */
+    margin-top: 50px;
+    /* Add space from the top */
+    margin-left: 20px;
+    /* Add space on the left */
+}
+
+
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .hero-section {
+        text-align: center;
+        padding: 40px 20px;
+        /* Reduced padding for smaller screens */
+    }
+
+    .hero-section img {
+        max-width: 300px;
+        position: static;
+        margin: 20px auto;
+        /* Center the image with margin */
+    }
+}
