@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial Slider</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        .testimonial-slider {
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .slider-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .testimonial {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author h4 {
+            margin: 0;
+            font-size: 16px;
+            color: #222;
+        }
+
+        .author span {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        .controls button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="testimonial-slider">
+        <h2 class="slider-title">What Our Clients Say</h2>
+        <div class="slider">
+            <div class="slide active">
+                <p class="testimonial">"Excellent service and great results! Highly recommended!"</p>
+                <div class="author">
+                    <img src="https://via.placeholder.com/60?text=User+1" alt="User 1">
+                    <h4>John Doe</h4>
+                    <span>CEO, Example Corp</span>
+                </div>
+            </div>
+            <div class="slide">
+                <p class="testimonial">"A fantastic experience from start to finish. Truly professional."</p>
+                <div class="author">
+                    <img src="https://via.placeholder.com/60?text=User+2" alt="User 2">
+                    <h4>Jane Smith</h4>
+                    <span>Marketing Head, Tech Solutions</span>
+                </div>
+            </div>
+            <div class="slide">
+                <p class="testimonial">"The team exceeded my expectations. I couldn't ask for better!"</p>
+                <div class="author">
+                    <img src="https://via.placeholder.com/60?text=User+3" alt="User 3">
+                    <h4>Robert Brown</h4>
+                    <span>Entrepreneur</span>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="prev">←</button>
+            <button id="next">→</button>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        let currentSlide = 0;
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentSlide = (currentSlide === 0) ? slides.length - 1 : currentSlide - 1;
+            updateSlides();
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentSlide = (currentSlide === slides.length - 1) ? 0 : currentSlide + 1;
+            updateSlides();
+        });
+
+        updateSlides();
+    </script>
+</body>
+
+</html>
